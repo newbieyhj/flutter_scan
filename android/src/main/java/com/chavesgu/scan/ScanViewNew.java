@@ -149,6 +149,10 @@ public class ScanViewNew extends BarcodeView implements PluginRegistry.RequestPe
     }
     public void dispose() {
 //        this.stopDecoding();
+        if (activityPluginBinding != null) {
+            activityPluginBinding.removeRequestPermissionsResultListener(this);
+        }
+        
         _pause();
 //        activity.getApplication().unregisterActivityLifecycleCallbacks(lifecycleCallback);
 //        lifecycleCallback = null;
